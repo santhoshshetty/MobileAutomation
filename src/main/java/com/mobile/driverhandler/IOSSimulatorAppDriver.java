@@ -25,7 +25,6 @@ public class IOSSimulatorAppDriver implements DriverConfig {
     String basePath = System.getProperty("user.dir");
     log.info("***** Browser Testing On IOS Real Device  *****");
     XCUITestOptions options = new XCUITestOptions()
-        .setAutomationName(AutomationName.IOS_XCUI_TEST)
         .setDeviceName("iPhone 14")
         .setApp(basePath.concat("/src/main/resources/app/").concat("bitbar-ios-sample.ipa"));
     Server.setDriver(new IOSDriver(new URL("http://127.0.0.1:4723"), options));
