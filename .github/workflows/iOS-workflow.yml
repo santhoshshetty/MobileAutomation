@@ -1,0 +1,18 @@
+name: iOS workflow
+on: workflow_dispatch
+jobs:
+  run-mobile-tests:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Set up Appium
+      run: |
+        npm install -g appium@2.6.0
+        appium -v
+        appium &>/dev/null &
+
+    - name: Run iOS Tests
+      run: mvn clean test
