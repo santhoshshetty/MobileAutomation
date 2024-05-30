@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 
 public class DemoTest {
 
-  @Test(enabled = false)
+  @Test
   public void demoAndroidTest() {
     DriverFactory.getDriverInstance("androidEmulator").setup();
     Server.getDriver().findElement(AppiumBy.accessibilityId("App")).click();
   }
 
-  @Test
+  @Test(enabled=false)
   public void demoIOSTest() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
   }
