@@ -27,10 +27,10 @@ public class AndroidEmulatorAppDriver implements DriverConfig {
     String basePath = System.getProperty("user.dir");
     UiAutomator2Options options = new UiAutomator2Options();
     options.setPlatformName("android")
-      .setDeviceName(config.androidDeviceName())
-      .setAppPackage(config.appPackage())
-      .setAppActivity(config.appActivity())
-      .setApp(basePath.concat("/src/main/resources/app/").concat(config.appName()))
+        .setDeviceName(config.androidDeviceName())
+        .setAppPackage(config.appPackage())
+        .setAppActivity(config.appActivity())
+        .setApp(basePath.concat("/src/main/resources/app/").concat(config.appName()))
         .setUiautomator2ServerInstallTimeout(Duration.ofMillis(60000));
     Server.setDriver(new AndroidDriver(new URL("http://127.0.0.1:4723"), options));
   }

@@ -29,9 +29,9 @@ public class Server {
   static void setInstance() {
     AppiumServiceBuilder builder = new AppiumServiceBuilder();
     builder
-      .usingAnyFreePort()
-      .withArgument(GeneralServerFlag.BASEPATH, "/")
-      .withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
+        .usingAnyFreePort()
+        .withArgument(GeneralServerFlag.BASEPATH, "/")
+        .withArgument(GeneralServerFlag.LOCAL_TIMEZONE)
         .withArgument(GeneralServerFlag.RELAXED_SECURITY);
     server = AppiumDriverLocalService.buildService(builder);
   }

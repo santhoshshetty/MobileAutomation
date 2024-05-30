@@ -4,9 +4,9 @@ import org.aeonbits.owner.Config;
 
 @Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-  "system:properties",
-  "system:env",
-  "file:${user.dir}/src/main/resources/mobile-config.properties"
+    "system:properties",
+    "system:env",
+    "file:${user.dir}/src/main/resources/mobile-config.properties"
 })
 public interface MobileConfig extends Config {
   @Key("ANDROID_PLATFORM_VERSION")
