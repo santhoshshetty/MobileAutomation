@@ -3,6 +3,7 @@ package com.mobile.driverhandler;
 import java.net.URL;
 import java.time.Duration;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.appium.java_client.remote.AutomationName;
 import lombok.SneakyThrows;
@@ -25,10 +26,8 @@ public class IOSSimulatorAppDriver implements DriverConfig {
     log.info("***** Browser Testing On IOS Real Device  *****");
     XCUITestOptions options = new XCUITestOptions()
         .setAutomationName(AutomationName.IOS_XCUI_TEST)
-        .setDeviceName("iPhone 11")
-        .setApp(basePath.concat("/src/main/resources/app/").concat("bitbar-ios-sample.ipa"))
-        .setFullReset(false)
-        .setWdaLaunchTimeout(Duration.ofMinutes(100000));
-    Server.setDriver(new AndroidDriver(new URL("http://127.0.0.1:4723"), options));
+        .setDeviceName("iPhone 14")
+        .setApp(basePath.concat("/src/main/resources/app/").concat("bitbar-ios-sample.ipa"));
+    Server.setDriver(new IOSDriver(new URL("http://127.0.0.1:4723"), options));
   }
 }
