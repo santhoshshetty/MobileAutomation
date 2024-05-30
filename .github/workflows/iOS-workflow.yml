@@ -14,5 +14,8 @@ jobs:
         appium -v
         appium &>/dev/null &
 
+    - name: Install XCUI Test Driver
+      run: appium driver install xcuitest
+
     - name: Run iOS Tests
       run: mvn clean test
