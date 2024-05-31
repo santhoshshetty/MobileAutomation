@@ -24,7 +24,7 @@ public class IOSSimulatorAppDriver implements DriverConfig {
     log.info("***** Browser Testing On IOS Real Device  *****");
     XCUITestOptions options = new XCUITestOptions();
     options.setDeviceName("iPhone 14")
-        .setApp(basePath.concat("/src/main/resources/app/").concat("SauceLabs-Demo-App.Simulator.XCUITest.zip"))
+        .setApp(basePath.concat("/src/main/resources/app/").concat("iOS-Simulator-MyRNDemoApp.1.3.0-162.zip"))
         .setWdaLaunchTimeout(Duration.ofMinutes(300000));
     Server.setDriver(new IOSDriver(new URL("http://127.0.0.1:4723"), options));
   }
