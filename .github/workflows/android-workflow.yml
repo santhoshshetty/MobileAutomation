@@ -1,7 +1,6 @@
 name: Run android tests in github runner
 
 on:
-  push:
   workflow_dispatch:
   
 jobs:
