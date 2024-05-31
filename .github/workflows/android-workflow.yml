@@ -39,8 +39,10 @@ jobs:
         run: sleep 15
 
       - name: Run Android Tests
-        uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@v2.19.1
         with:
           api-level: 29
+          arch: x86_64
+          ndk: 21.4.7075529
           script: |
             mvn clean test
