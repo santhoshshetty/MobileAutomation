@@ -25,9 +25,6 @@ jobs:
         npm install -g appium@2.6.0
         appium -v
         appium &>/dev/null &
-
-    - name: Install XCUI Test Driver
-      run: |
         appium driver install xcuitest
         appium driver list --installed
 
