@@ -28,6 +28,13 @@ jobs:
         appium driver install xcuitest
         appium driver list --installed
 
+    - name: Start Appium server
+      run: |
+        nohup appium &
+ 
+    - name: Wait for Appium server to start
+      run: sleep 15   
+
     - name: Run iOS Tests
       run: |
         xcrun simctl erase all
