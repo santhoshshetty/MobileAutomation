@@ -11,7 +11,7 @@ public class DemoTest {
     Server.getDriver().findElement(AppiumBy.accessibilityId("App")).click();
   }
 
-  @Test(enabled = false)
+  @Test
   public void demoIOSTest() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
   }
