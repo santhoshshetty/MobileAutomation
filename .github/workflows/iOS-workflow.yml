@@ -23,8 +23,6 @@ jobs:
     - name: Set up Appium
       run: |
         npm install -g appium@2.6.0
-        appium -v
-        appium &>/dev/null &
         appium driver install xcuitest
         appium driver list --installed
 
