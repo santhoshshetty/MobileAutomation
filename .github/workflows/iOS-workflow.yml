@@ -32,4 +32,7 @@ jobs:
         appium driver list --installed
 
     - name: Run iOS Tests
-      run: mvn clean test
+      run: |
+        xcrun simctl erase all
+        xcrun xctrace list devices
+        mvn clean test
