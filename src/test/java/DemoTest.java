@@ -23,10 +23,11 @@ public class DemoTest {
   @SneakyThrows
   public void demoIOSTest() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
-    Server.getDriver().findElement(AppiumBy.accessibilityId("Drag")).click();
-    Thread.sleep(5000);
-    RemoteWebElement source = (RemoteWebElement) Server.getDriver().findElement(AppiumBy.accessibilityId("drag-l2"));
-    RemoteWebElement target = (RemoteWebElement) Server.getDriver().findElement(AppiumBy.accessibilityId("drop-l2"));
-    dragAndDrop(source, target);
+    Thread.sleep(2000);
+    Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option cart\"]")).click();
+    Thread.sleep(2000);
+    Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option catalog\"]")).click();
+    Thread.sleep(2000);
+    Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option menu\"]")).click();
   }
 }

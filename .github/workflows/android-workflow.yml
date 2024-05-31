@@ -39,7 +39,7 @@ jobs:
         run: sleep 15
 
       - name: Run Android Tests
-        uses: ReactiveCircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@v2
         with:
           script: |
             api-level: 29
