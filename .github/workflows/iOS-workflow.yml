@@ -24,6 +24,7 @@ jobs:
       run: |
         npm install -g appium@2.6.0
         npm install @appium/doctor -g
+        npm install -g appium-webdriveragent
         appium driver install xcuitest
         appium driver list --installed
         appium-doctor --ios
