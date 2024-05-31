@@ -26,7 +26,7 @@ jobs:
         npm install @appium/doctor -g
         appium driver install xcuitest
         appium driver list --installed
-        appium-doctor -h
+        appium-doctor --ios
 
     - name: Start Appium server
       run: |
