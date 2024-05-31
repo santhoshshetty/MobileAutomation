@@ -8,13 +8,18 @@ import org.testng.annotations.Test;
 
 public class DemoTest {
 
-  @Test(enabled = false)
+  public static void dragAndDrop(RemoteWebElement source, RemoteWebElement destination) throws InterruptedException {
+    Server.getDriver().executeScript("gesture: dragAndDrop",
+        Map.of("sourceId", source.getId(), "destinationId", destination.getId()));
+  }
+
+  @Test
   public void demoAndroidTest() {
     DriverFactory.getDriverInstance("androidEmulator").setup();
     Server.getDriver().findElement(AppiumBy.accessibilityId("App")).click();
   }
 
-  @Test
+  @Test(enabled = false)
   @SneakyThrows
   public void demoIOSTest() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
@@ -23,10 +28,5 @@ public class DemoTest {
     RemoteWebElement source = (RemoteWebElement) Server.getDriver().findElement(AppiumBy.accessibilityId("drag-l2"));
     RemoteWebElement target = (RemoteWebElement) Server.getDriver().findElement(AppiumBy.accessibilityId("drop-l2"));
     dragAndDrop(source, target);
-  }
-
-  public static void dragAndDrop(RemoteWebElement source, RemoteWebElement destination) throws InterruptedException {
-    Server.getDriver().executeScript("gesture: dragAndDrop",
-        Map.of("sourceId", source.getId(), "destinationId", destination.getId()));
   }
 }

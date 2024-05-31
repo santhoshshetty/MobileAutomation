@@ -1,37 +1,46 @@
-name: Run android tests in github runner
-
+name: Android Mobile CI - MAC OS
 on:
-  workflow_dispatch:
-  
-jobs:
-  test:
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        api-level: [29]
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-        
-      - name: Set up JDK 17
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '21'
-      - run: |
-            npm install -g appium@v2.6.0
-            appium -v
-            appium &>/dev/null &
+  workflow_dispatch
 
-      - name: run android tests
-        uses: reactivecircus/android-emulator-runner@v2
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
         with:
-          api-level: ${{ matrix.api-level }}
-          force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: mvn clean test
+          distribution: 'temurin'  # Use 'adopt' or 'zulu' if needed
+          java-version: '17'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '21'  # Use a version compatible with ARM64
+          check-latest: true
+
+      - name: Install Appium 2.0
+        run: |
+          npm install -g appium@next appium-doctor
+          npm install -g appium-uiautomator2-driver
+
+      - name: Verify Appium installation
+        run: appium-doctor --android
+
+      - name: Start Appium server
+        run: |
+          nohup appium &
+
+      - name: Wait for Appium server to start
+        run: sleep 15
+
+      - name: Run Android Tests
+        uses: ReactiveCircus/android-emulator-runner@v2.19.1
+        with:
+          script: |
+            adb devices -l
+            mvn clean test
