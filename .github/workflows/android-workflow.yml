@@ -43,5 +43,4 @@ jobs:
         with:
           api-level: 29
           script: |
-            adb devices -l
             mvn clean test
