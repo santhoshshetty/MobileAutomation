@@ -1,6 +1,7 @@
 package com.mobile.driverhandler;
 
 import java.net.URL;
+import java.time.Duration;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import lombok.SneakyThrows;
@@ -23,7 +24,8 @@ public class IOSSimulatorAppDriver implements DriverConfig {
     log.info("***** Browser Testing On IOS Real Device  *****");
     XCUITestOptions options = new XCUITestOptions();
     options.setDeviceName("iPhone 14")
-        .setApp(basePath.concat("/src/main/resources/app/").concat("SauceLabs-Demo-App.Simulator.XCUITest.zip"));
+        .setApp(basePath.concat("/src/main/resources/app/").concat("SauceLabs-Demo-App.Simulator.XCUITest.zip"))
+        .setWdaLaunchTimeout(Duration.ofMinutes(100000));
     Server.setDriver(new IOSDriver(new URL("http://127.0.0.1:4723"), options));
   }
 }
