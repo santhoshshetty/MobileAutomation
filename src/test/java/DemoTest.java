@@ -13,13 +13,13 @@ public class DemoTest {
         Map.of("sourceId", source.getId(), "destinationId", destination.getId()));
   }
 
-  @Test
+  @Test(enabled = false)
   public void demoAndroidTest() {
     DriverFactory.getDriverInstance("androidEmulator").setup();
     Server.getDriver().findElement(AppiumBy.accessibilityId("App")).click();
   }
 
-  @Test(enabled = false)
+  @Test
   @SneakyThrows
   public void demoIOSTest() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
