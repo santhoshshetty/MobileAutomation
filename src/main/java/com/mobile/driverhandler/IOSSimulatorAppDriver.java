@@ -23,7 +23,7 @@ public class IOSSimulatorAppDriver implements DriverConfig {
     log.info("***** Browser Testing On IOS Real Device  *****");
     XCUITestOptions options = new XCUITestOptions();
     options.setDeviceName("iPhone 14")
-        .setApp(basePath.concat("/src/main/resources/app/").concat("bitbar-ios-sample.ipa"));
+        .setApp(basePath.concat("/src/main/resources/app/").concat("SauceLabs-Demo-App.Simulator.XCUITest.zip"));
     Server.setDriver(new IOSDriver(new URL("http://127.0.0.1:4723"), options));
   }
 }
