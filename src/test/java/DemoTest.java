@@ -21,7 +21,17 @@ public class DemoTest {
 
   @Test
   @SneakyThrows
-  public void demoIOSTest() {
+  public void demoIOSTest1() {
+    DriverFactory.getDriverInstance("iOSSimulator").setup();
+    Thread.sleep(2000);
+    Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option cart\"]")).click();
+    Thread.sleep(2000);
+    Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option catalog\"]")).click();
+  }
+
+  @Test
+  @SneakyThrows
+  public void demoIOSTest2() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
     Thread.sleep(2000);
     Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option cart\"]")).click();
