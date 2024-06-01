@@ -19,7 +19,7 @@ public class DemoTest {
     Server.getDriver().findElement(AppiumBy.accessibilityId("App")).click();
   }
 
-  @Test
+  @Test(threadPoolSize = 3, invocationCount = 1)
   @SneakyThrows
   public void demoIOSTest1() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
@@ -29,7 +29,7 @@ public class DemoTest {
     Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option catalog\"]")).click();
   }
 
-  @Test
+  @Test(threadPoolSize = 3, invocationCount = 1)
   @SneakyThrows
   public void demoIOSTest2() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
@@ -41,7 +41,7 @@ public class DemoTest {
     Server.getDriver().findElement(AppiumBy.xpath("//XCUIElementTypeButton[@name=\"tab bar option menu\"]")).click();
   }
 
-  @Test
+  @Test(threadPoolSize = 3, invocationCount = 1)
   @SneakyThrows
   public void demoIOSTest3() {
     DriverFactory.getDriverInstance("iOSSimulator").setup();
