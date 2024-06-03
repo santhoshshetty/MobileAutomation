@@ -57,11 +57,11 @@ jobs:
         run: |
           if [ -d "~/Library/Developer/CoreSimulator/Devices" ]; then
             echo "Simulator cache found, starting simulator..."
-            xcrun simctl boot "iPhone 12"
-            xcrun simctl bootstatus "iPhone 12" -b
+            xcrun simctl boot "iPhone 14"
+            xcrun simctl bootstatus "iPhone 14" -b
           else
-            xcrun simctl boot "iPhone 12"
-            xcrun simctl bootstatus "iPhone 12" -b
+            xcrun simctl boot "iPhone 14"
+            xcrun simctl bootstatus "iPhone 14" -b
           fi
 
       - name: Run iOS Tests
