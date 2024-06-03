@@ -27,9 +27,11 @@ jobs:
         run: sleep 15
 
       - name: Run Android Tests
-        uses: reactivecircus/android-emulator-runner@v2.31.0
+        uses: ReactiveCircus/android-emulator-runner@v2 # install and create the Emulator
         with:
-          api-level: 31
-          script: |
-            adb devices -l
-            mvn clean test
+          api-level: 30
+          target: default
+          arch: x86_64
+          profile: Nexus 6
+          avd-name: 1st_Pixel_4_XL_API_30
+          script: mvn clean test
