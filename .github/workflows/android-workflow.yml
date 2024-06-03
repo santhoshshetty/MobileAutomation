@@ -31,7 +31,7 @@ jobs:
         with:
           api-level: 29
           target: default
-          arch: x86_64
+          arch: arm64
           profile: Nexus 6
           avd-name: 1st_Pixel_4_XL_API_30
           script: mvn clean test
