@@ -27,7 +27,7 @@ jobs:
         run: sleep 15
 
       - name: Run Android Tests
-        uses: reactivecircus/android-emulator-runner@v2.19.1
+        uses: reactivecircus/android-emulator-runner@latest
         with:
           api-level: 31
           arch: arm64-v8a
