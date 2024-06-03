@@ -71,5 +71,5 @@ jobs:
       - name: Save iOS Simulator State
         if: success()
         run: |
-          xcrun simctl shutdown "iPhone 12"
-          xcrun simctl erase "iPhone 12"
+          xcrun simctl shutdown "iPhone 14"
+          xcrun simctl erase "iPhone 14"
