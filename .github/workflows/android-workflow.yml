@@ -26,8 +26,6 @@ jobs:
       - name: Wait for Appium server to start
         run: sleep 15
 
-      - name: Run Android Tests
-        uses: ReactiveCircus/android-emulator-runner@v2 # install and create the Emulator
       - name: run android tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
