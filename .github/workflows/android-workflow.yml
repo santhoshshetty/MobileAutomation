@@ -11,18 +11,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Set up Java
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'temurin'  # Use 'adopt' or 'zulu' if needed
-          java-version: '17'
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '21'  # Use a version compatible with ARM64
-          check-latest: true
-
       - name: Install Appium 2.0
         run: |
           npm install -g appium@next appium-doctor
@@ -42,11 +30,12 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2.19.1
         with:
           api-level: 31
-          profile: Nexus 6
           arch: arm64-v8a
+          ndk: 21.4.7075529
           force-avd-creation: false
           avd-name: macOS-avd-arm64-v8a-31
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           script: |
+            adb devices -l
             mvn clean test
