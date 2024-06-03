@@ -30,12 +30,6 @@ jobs:
         uses: reactivecircus/android-emulator-runner@v2.31.0
         with:
           api-level: 31
-          arch: arm64-v8a
-          ndk: 21.4.7075529
-          force-avd-creation: false
-          avd-name: macOS-avd-arm64-v8a-31
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
           script: |
             adb devices -l
             mvn clean test
