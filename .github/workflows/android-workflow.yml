@@ -20,7 +20,7 @@ jobs:
       - name: Install Appium 2.0
         run: |
           npm install -g appium@next appium-doctor
-          npm install -g appium-uiautomator2-driver
+          appium driver install uiautomator2
           appium driver list --installed
           appium-doctor --android
 
