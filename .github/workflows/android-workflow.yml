@@ -21,6 +21,7 @@ jobs:
         run: |
           npm install -g appium@next appium-doctor
           npm install -g appium-uiautomator2-driver
+          appium driver list --installed
 
       - name: Verify Appium installation
         run: appium-doctor --android
