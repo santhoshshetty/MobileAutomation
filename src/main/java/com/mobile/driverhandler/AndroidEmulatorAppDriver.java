@@ -31,7 +31,7 @@ public class AndroidEmulatorAppDriver implements DriverConfig {
         .setAppPackage(config.appPackage())
         .setAppActivity(config.appActivity())
         .setApp(basePath.concat("/src/main/resources/app/").concat(config.appName()))
-        .setUiautomator2ServerInstallTimeout(Duration.ofMillis(60000));
+        .setUiautomator2ServerInstallTimeout(Duration.ofMillis(300000));
     Server.setDriver(new AndroidDriver(new URL("http://127.0.0.1:4723"), options));
   }
 }
